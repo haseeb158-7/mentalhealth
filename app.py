@@ -76,8 +76,9 @@ if st.button("Submit My Journey Entry"):
             # 1. Connect to Google Sheets
             conn = st.connection("gsheets", type=GSheetsConnection)
             
-            # 2. Hard-link the URL from secrets
-            sheet_url = st.secrets["connections"]["gsheets"]["spreadsheet"]
+           # namespace std
+            # 2. Hard-link the URL directly to bypass TOML formatting errors
+            sheet_url = "https://docs.google.com/spreadsheets/d/1jS6ICO2PSf4S2v4jqFYfhBtR1ipV7ThfsXEDxldyCy4/edit"
             
             # 3. Read existing data
             existing_data = conn.read(spreadsheet=sheet_url)
