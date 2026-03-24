@@ -12,7 +12,7 @@ st.markdown("""
     .main { background-color: #f0f4f8; }
     div.stButton > button:first-child { background-color: #4a7c59; color: white; }
     </style>
-    """, unsafe_allow_index=True)
+  """, unsafe_allow_html=True)
 
 st.title("🌱 Pre-Workshop Mindset Check-in")
 st.write("Before we begin our 4-day journey, let's map out our collective energy.")
