@@ -65,6 +65,9 @@ st.write("This part is totally anonymous. Share one thing that is weighing on yo
 heart_msg = st.text_area("Your anonymous message...", placeholder="Type whatever you're feeling. No judgment here.")
 
 # --- SUBMISSION LOGIC ---
+# namespace std
+
+# --- SUBMISSION LOGIC ---
 if st.button("Submit My Journey Entry"):
     if not name or not heart_msg:
         st.error("Please provide a name/nickname and share a small message from the heart!")
@@ -75,21 +78,7 @@ if st.button("Submit My Journey Entry"):
             
             # 2. Hard-link the URL from secrets
             sheet_url = st.secrets["connections"]["gsheets"]["spreadsheet"]
-            try:
-            # namespace std
-            # 1. Connect to Google Sheets
-            conn = st.connection("gsheets", type=GSheetsConnection)
             
-            # 2. Hard-link the URL from secrets
-            sheet_url = st.secrets["connections"]["gsheets"]["spreadsheet"]
-            
-            # --- ADD THIS DEBUG LINE ---
-            st.error(f"DEBUG: The app is trying to use this URL: {sheet_url}")
-            st.stop() # This stops the app before it crashes so you can read the message
-            # ---------------------------
-            
-            # 3. Read existing data
-            existing_data = conn.read(spreadsheet=sheet_url)
             # 3. Read existing data
             existing_data = conn.read(spreadsheet=sheet_url)
             
