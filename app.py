@@ -62,7 +62,11 @@ if st.button("Submit My Entry"):
         }])
         
         # Update sheet (Appends to existing data)
-        existing_data = conn.read()
+        # Force the app to pull the URL directly from your Secrets
+sheet_url = st.secrets["connections"]["gsheets"]["spreadsheet"]
+
+# Pass the URL explicitly to the read function
+existing_data = conn.read(spreadsheet=sheet_url)
         updated_df = pd.concat([existing_data, new_row], ignore_index=True)
         conn.update(data=updated_df)
         
